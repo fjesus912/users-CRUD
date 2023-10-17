@@ -110,15 +110,21 @@ function App() {
         toggleShowPass={toggleShowPass}
         isShowPass={isShowPass}
         errors={errors}
-      />       
-      <UsersList
-        users={users}
-        deleteUser={deleteUser}
-        handleClickUpdate={handleClickUpdate}
-        isShowDeleteModal={isShowDeleteModal}
-        handleOpenDeleteModal={handleOpenDeleteModal}
-        handleCloseDeleteModal={handleCloseDeleteModal}
       />
+      {users.length === 0 ?
+        <div className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'>
+          <p className='text-center text-lg text-black/50'>{"You don't have any users on your list."} <br /> {"Create a new user"}</p>
+        </div>
+        :
+        <UsersList
+          users={users}
+          deleteUser={deleteUser}
+          handleClickUpdate={handleClickUpdate}
+          isShowDeleteModal={isShowDeleteModal}
+          handleOpenDeleteModal={handleOpenDeleteModal}
+          handleCloseDeleteModal={handleCloseDeleteModal}
+        />
+      }
     </main>
   );
 }

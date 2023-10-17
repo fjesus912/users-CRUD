@@ -13,7 +13,7 @@ const Modal = ({
   errors }) => {
 
   return (
-    <section className={`fixed bg-black/25 top-0 bottom-0 left-0 right-0 transition-all ${isShowModal ? 'visible opacity-100' : 'invisible opacity-0'}`}>
+    <section className={`fixed bg-black/25 top-0 bottom-0 left-0 right-0 transition-all ${isShowModal ? 'visible opacity-100 z-10' : 'invisible opacity-0'}`}>
 
       <form onSubmit={handleSubmit(submit)} className="bg-[#3C3C3D] rounded-r-[30px] h-screen flex justify-center items-center w-[min(100%,_450px)] relative">
         <button onClick={handleCloseModal} type="button" className="text-white absolute top-8 right-8 hover:text-red-500 transition-colors">
