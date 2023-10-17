@@ -11,7 +11,7 @@ function App() {
   const [isShowModal, setIsShowModal] = useState(false)
   const [isShowPass, setIsShowPass] = useState(false)
 
-  const [isShowDeleteModal, setIsShowDeleteModal] = useState(false) // Prueba
+  const [isShowDeleteModal, setIsShowDeleteModal] = useState(null)
 
   const [users, setUsers] = useState([])
   const [idUserToEdit, setIdUserToEdit] = useState(null)
@@ -42,11 +42,11 @@ function App() {
     setIsShowPass(isShowPass => !isShowPass)
   }
 
-  const handleOpenDeleteModal = () => { // Prueba
-    setIsShowDeleteModal(true)
+  const handleOpenDeleteModal = (idUserToDelete) => {
+    setIsShowDeleteModal(idUserToDelete)
   }
 
-  const handleCloseDeleteModal = () => { // Prueba
+  const handleCloseDeleteModal = () => {
     setIsShowDeleteModal(false)
   }
 
@@ -68,7 +68,6 @@ function App() {
         handleCloseDeleteModal()
       })
       .catch((err) => console.log(err))
-
   }
 
   const updateUser = (data) => {
@@ -111,8 +110,7 @@ function App() {
         toggleShowPass={toggleShowPass}
         isShowPass={isShowPass}
         errors={errors}
-      />
-        
+      />       
       <UsersList
         users={users}
         deleteUser={deleteUser}

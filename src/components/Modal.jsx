@@ -1,4 +1,5 @@
 import { IconEye, IconEyeOff, IconX } from "@tabler/icons-react"
+import { EMAIL_VALIDATIONS, FIRST_NAME_VALIDATIONS, LAST_NAME_VALIDATIONS, PASSWORD_VALIDATIONS } from "../constants/formValidations"
 
 const Modal = ({
   isShowModal,
@@ -29,16 +30,7 @@ const Modal = ({
             <input
               id="first_name"
               type="text"
-              {...register('first_name', {
-                required: {
-                  value: true,
-                  message: 'This field is required',
-                },
-                maxLength: {
-                  value: 25,
-                  message: 'Maximum 25 characters',
-                },
-              })}
+              {...register('first_name', FIRST_NAME_VALIDATIONS)}
               placeholder='Enter name'
               className="border border-[#E5E5E5] bg-transparent rounded-md px-3 py-1 outline-none text-white/50"
             />
@@ -56,16 +48,7 @@ const Modal = ({
             <input
               id="last_name"
               type="text"
-              {...register('last_name', {
-                required: {
-                  value: true,
-                  message: 'This field is required',
-                },
-                maxLength: {
-                  value: 25,
-                  message: 'Maximum 25 characters',
-                },
-              })}
+              {...register('last_name', LAST_NAME_VALIDATIONS)}
               placeholder='Enter last name'
               className="border border-[#E5E5E5] bg-transparent rounded-md px-3 py-1 outline-none text-white/50"
             />
@@ -83,20 +66,7 @@ const Modal = ({
             <input
               id="email"
               type="text"
-              {...register('email', {
-                required: {
-                  value: true,
-                  message: 'This field is required'
-                },
-                maxLength: {
-                  value: 150,
-                  message: 'Maximum 150 characters',
-                },
-                pattern: {
-                  value: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-                  message: 'Please enter a valid email'
-                },
-              })}
+              {...register('email', EMAIL_VALIDATIONS)}
               placeholder='Enter email'
               className="border border-[#E5E5E5] bg-transparent rounded-md px-3 py-1 outline-none text-white/50" />
             {
@@ -113,16 +83,7 @@ const Modal = ({
             <input
               id="password"
               type={isShowPass ? "text" : "password"}
-              {...register('password', {
-                required: {
-                  value: true,
-                  message: 'This field is required',
-                },
-                maxLength: {
-                  value: 25,
-                  message: 'Maximum 25 characters',
-                },
-              })}
+              {...register('password', PASSWORD_VALIDATIONS)}
               placeholder='Password'
               className="border border-[#E5E5E5] bg-transparent rounded-md px-3 py-1 outline-none text-white/50" />
             <button className="text-white absolute top-[41px] right-3" onClick={toggleShowPass} type="button">

@@ -1,7 +1,10 @@
 import { IconGift, IconPencil, IconTrash } from "@tabler/icons-react"
-import DeleteModal from "./DeleteModal"
 
-const User = ({ userInfo, handleClickUpdate, handleOpenDeleteModal, deleteUser, isShowDeleteModal, handleCloseDeleteModal }) => {
+const User = ({
+  userInfo,
+  handleClickUpdate,
+  handleOpenDeleteModal
+}) => {
   return (
     <article className="border-2 py-4 px-5 rounded-2xl bg-white grid gap-2">
       <h5 className="text-xl">{userInfo.first_name} {userInfo.last_name}</h5>
@@ -20,16 +23,11 @@ const User = ({ userInfo, handleClickUpdate, handleOpenDeleteModal, deleteUser, 
           <IconPencil />
         </button>
         {/* <button onClick={() => deleteUser(userInfo.id)} className="text-white bg-[#d85d5d] hover:bg-[#d93f3f] p-2 rounded-md transition-colors"> */}
-        <button onClick={handleOpenDeleteModal} className="text-white bg-[#d85d5d] hover:bg-[#d93f3f] p-2 rounded-md transition-colors">
+        <button onClick={() => handleOpenDeleteModal(userInfo.id)} className="text-white bg-[#d85d5d] hover:bg-[#d93f3f] p-2 rounded-md transition-colors">
           <IconTrash />
         </button>
       </div>
-      <DeleteModal
-        isShowDeleteModal={isShowDeleteModal}
-        deleteUser={deleteUser}
-        handleCloseDeleteModal={handleCloseDeleteModal}
-        userInfo={userInfo}
-      />
+
     </article>
   )
 }
